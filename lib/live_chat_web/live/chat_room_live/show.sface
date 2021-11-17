@@ -1,0 +1,19 @@
+<div class="flex items-center justify-center h-screen">
+
+  <div class="mx-auto shadow-lg bg-white rounded-md w-1/2 p-8">
+    <div id="chat-wrapper" phx-update="append" :hook="ChatBox" class="h-96 rounded-md flex flex-col overflow-y-auto mb-4 bg-gray-100 p-4">
+      {#for msg <- @messages}
+      <div id={msg.id} class="bg-blue-100 px-4 py-2 my-2 rounded-xl w-max">
+        <p class="text-lg">
+          {msg.body}
+        </p>
+      </div>
+      {/for}
+    </div>
+
+    <Form for={:message} submit="create-message" opts={autocomplete: "off"}>
+      <TextInput field={:body} class="p-4 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base ring-2 shadow outline-none focus:outline-none focus:ring w-full" />
+      <HiddenInput field={:chat_room_id} value={@chat_room.id} />
+    </Form>
+  </div>
+</div>

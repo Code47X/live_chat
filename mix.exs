@@ -50,7 +50,8 @@ defmodule LiveChat.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:surface, "~> 0.6.1"},
-      {:surface_formatter, "~> 0.6.0"}
+      {:surface_formatter, "~> 0.6.0"},
+      {:slugify, "~> 1.3"}
     ]
   end
 
